@@ -122,10 +122,10 @@ if ($section == "section=server") { ?>
 echo "
 <div class='bdydiv'>
 News<br>
----------------------------------------------------------------------<br>
-2023 05 24 + add wifi available networks with ajax.
-2019 07 31 + add cpu cores info and cpu usage in % with ajax.
-2019 07 27 + add ajax script to get real time info about memory usage.<br>
+---------------------------------------------------------------------<br />
+2023 05 24 + add wifi available networks with ajax.<br />
+2019 07 31 + add cpu cores info and cpu usage in % with ajax.<br />
+2019 07 27 + add ajax script to get real time info about memory usage.<br />
 2019 07 25 ! project launched.<br>
 
 </div>";

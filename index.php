@@ -106,7 +106,7 @@ $lsblk   = str_replace("NAME","    ",$lsblk);
 $wifi    = shell_exec('nmcli dev wifi');
 
 ?>
-<div class="titlediv"><h1><img src="arch.png" width="200"></h1><br><a href="index.php?section=news">News</a> &nbsp;<a href="index.php?section=server">Sys Info</a></div>
+<div class="titlediv"><a href="index.php?section=news">News</a> &nbsp;<a href="index.php?section=server">Sys Info</a></div>
 <div class="topdiv"></div>
 <?php
 $section = $_SERVER["QUERY_STRING"];

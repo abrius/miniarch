@@ -3,7 +3,7 @@
 <head>
 <title>System</title>
 <style>
-body      { margin:    auto; width:   50%;}
+body      { margin:    auto; width:   60%;}
 .p1       { display: inline; padding: 2px; margin:      0;}
 pre       { display: inline; margin:    0; font-family: monospace; font-size: 13px;}
 h1        { display: inline; margin:    0; font-family: Sans;      font-size: 20px; color: #FFDE00;}
@@ -80,12 +80,19 @@ $("#cpu").load('cpu.php')
 }, 1000);
 });
 </script>
+<script>
+$(document).ready(function(){
+setInterval(function(){
+$("#wifi").load('wifi.php')
+}, 1000);
+});
+</script>
 </head>
 <body bgcolor="#F6F9FC">
 <?php
 $krn     = shell_exec('uname -r');
 $uptime  = shell_exec('uptime -p');
-$hdd     = shell_exec('df /dev/sda1 -h');
+$hdd     = shell_exec('df / -h');
 $hdd     = str_replace("Filesystem","          ",$hdd);
 $mem     = shell_exec('free -h');
 $mem     = str_replace("Gi"," G",$mem);
@@ -96,6 +103,7 @@ $mem     = str_replace("free","Free",$mem);
 $mem     = str_replace("shared","Shared",$mem);
 $lsblk   = shell_exec('lsblk /dev/sda');
 $lsblk   = str_replace("NAME","    ",$lsblk);
+$wifi    = shell_exec('nmcli dev wifi');
 
 ?>
 <div class="titlediv"><h1><img src="arch.png" width="200"></h1><br><a href="index.php?section=news">News</a> &nbsp;<a href="index.php?section=server">Sys Info</a></div>
@@ -109,14 +117,17 @@ if ($section == "section=server") { ?>
 <div class="bdydiv"><?php echo "<pre>$hdd</pre>";?></div>
 <div class="bdydiv" id="memory"></div>
 <div class="bdydiv" id="cpu"></div>
+<div class="bdydiv" id="wifi"></div>
 <?php } elseif ($section == "" or $section == "section=news"){
 echo "
 <div class='bdydiv'>
 News<br>
 ---------------------------------------------------------------------<br>
-2019 07 25 ! project launched.<br>
-2019 07 27 + add ajax script to get real time info about memory usage.<br>
+2023 05 24 + add wifi available networks with ajax.
 2019 07 31 + add cpu cores info and cpu usage in % with ajax.
+2019 07 27 + add ajax script to get real time info about memory usage.<br>
+2019 07 25 ! project launched.<br>
+
 </div>";
 			} 
 

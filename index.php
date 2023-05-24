@@ -90,20 +90,10 @@ $("#wifi").load('wifi.php')
 </head>
 <body bgcolor="#F6F9FC">
 <?php
-$krn     = shell_exec('uname -r');
-$uptime  = shell_exec('uptime -p');
-$hdd     = shell_exec('df / -h');
+
+include ('config.php');
 $hdd     = str_replace("Filesystem","          ",$hdd);
-$mem     = shell_exec('free -h');
-$mem     = str_replace("Gi"," G",$mem);
-$mem     = str_replace("Mi"," M",$mem);
-$mem     = str_replace("total","Total",$mem);
-$mem     = str_replace("used","Used",$mem);
-$mem     = str_replace("free","Free",$mem);
-$mem     = str_replace("shared","Shared",$mem);
-$lsblk   = shell_exec('lsblk /dev/sda');
 $lsblk   = str_replace("NAME","    ",$lsblk);
-$wifi    = shell_exec('nmcli dev wifi');
 
 ?>
 <div class="titlediv"><a href="index.php?section=news">News</a> &nbsp;<a href="index.php?section=server">Sys Info</a></div>
